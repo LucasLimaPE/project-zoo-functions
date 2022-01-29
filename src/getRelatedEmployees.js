@@ -17,5 +17,5 @@ function getRelatedEmployees(managerId) {
   return employees.filter((employee) => employee.managers.includes(managerId)).map((employee2) =>
     `${employee2.firstName} ${employee2.lastName}`);
 }
-console.log(getRelatedEmployees('9e7d4524-363c-416a-8759-8aa7e50c0992'));
+
 module.exports = { isManager, getRelatedEmployees };
