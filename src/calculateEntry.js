@@ -16,17 +16,11 @@ function countEntrants(entrants) {
 }
 
 function calculateEntry(entrants) {
-  if (entrants === undefined) {
+  if (entrants === null || entrants === undefined || Object.keys(entrants).length === 0) {
     return 0;
   }
-  if (Object.keys(entrants).length === 0) {
-    return 0;
-  }
-  const childTicket = entrants.filter((element) => element.age < 18).length;
-  const adultTicket = entrants.filter((element) => element.age >= 18 && element.age < 50).length;
-  const seniorTicket = entrants.filter((element) => element.age >= 50).length;
-  return (childTicket
- * 20.99) + (adultTicket * 49.99) + (seniorTicket * 24.99);
+  const { adult = 0, child = 0, senior = 0 } = countEntrants(entrants);
+  return (child * 20.99) + (adult * 49.99) + (senior * 24.99);
 }
 
 module.exports = { calculateEntry, countEntrants };
