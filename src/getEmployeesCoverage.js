@@ -1,47 +1,50 @@
 const { employees, species } = require('../data/zoo_data');
-const data = require('../data/zoo_data');
 
 /*
 Recibi ajuda do colega Guilherme Azevedo para construção desse código.
 */
 
 const listEmployees = () => {
-  const array = [];
-  employees.forEach((employee) => {
-    const objeto = {
-      id: employee.id,
-      fullName: `${employee.firstName} ${employee.lastName}`,
-      species: species.filter((specie) => employee.responsibleFor.includes(specie.id))
+  const result = employees.reduce((acc, curr, index) => {
+    const object = {
+      id: curr.id,
+      fullName: `${curr.firstName} ${curr.lastName}`,
+      species: species.filter((specie) => curr.responsibleFor.includes(specie.id))
         .map((nameSpecie) => nameSpecie.name),
-      locations: species.filter((specie) => employee.responsibleFor.includes(specie.id))
+      locations: species.filter((specie) => curr.responsibleFor.includes(specie.id))
         .map((nameSpecie) => nameSpecie.location),
     };
-    array.push(objeto);
-  });
-  return array;
+    acc[index] = object;
+    return acc;
+  }, []);
+  return result;
 };
 
 const list = listEmployees();
 
 function listName(nome) {
-  return list.find((element) => element.fullName.includes(nome));
+  const getId = list.find((element) => element.fullName.includes(nome));
+  if (!getId) {
+    throw new Error('Informações inválidas');
+  }
+  return getId;
 }
 
 function listId(id) {
-  const pegaID = list.find((element) => element.id.includes(id));
-  if (!pegaID) {
+  const getId = list.find((element) => element.id.includes(id));
+  if (!getId) {
     throw new Error('Informações inválidas');
   }
-  return pegaID;
+  return getId;
 }
 
-function getEmployeesCoverage(parametro) {
-  if (!parametro) {
+function getEmployeesCoverage(object) {
+  if (!object) {
     return listEmployees();
-  } if (parametro.name) {
-    return listName(parametro.name);
-  } if (parametro.id) {
-    return listId(parametro.id);
+  } if (object.name) {
+    return listName(object.name);
+  } if (object.id) {
+    return listId(object.id);
   }
 }
 
