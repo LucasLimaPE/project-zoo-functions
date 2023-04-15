@@ -2,6 +2,7 @@ const { species } = require('../data/zoo_data');
 
 /*
  Este código foi desenvolvido com o auxílio do colega Guilherme Azevedo, após várias tentativas de fazê-lo ele me explicou a questão do reduce e da negação usada no segundo if.
+ https://www.linkedin.com/in/guilherme-azevedo-442170221/
 */
 
 const countTotalAnimals = () =>

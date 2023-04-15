@@ -2,6 +2,7 @@ const data = require('../data/zoo_data');
 
 /*
 Este código foi feito com a ajuda do Colega Guilherme Azevedo.
+https://www.linkedin.com/in/guilherme-azevedo-442170221/
 */
 
 function countEntrants(entrants) {
