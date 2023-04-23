@@ -14,12 +14,12 @@ O projeto consiste em implementar funções para atender os requisitos propostos
 
 ## :books: Requisitos
 
-1. Implementar a função `getSpeciesByIs` que será responsável por buscar as espéceis de animais por `id` e retornar um array contendo as espécies referentes aos ids passados como parâmetro, deve ser possível adicionar um ou mais `ids`.
+1. Implementar a função `getSpeciesByIds` que será responsável por buscar as espéceis de animais por `id` e retornar um array contendo as espécies referentes aos ids passados como parâmetro, deve ser possível adicionar um ou mais `ids`.
   - Caso não receba parâmetro, deve retornar um array vazio.
   - Caso receba um único `id`, deve retornar um array com a espécie referente ao `id` recebido como parâmetro.
   - Caso receba mais de um `id`, deve retornar um array com as espécies referentes aos `ids` recebidos como parâmetro.
 
-2. Implementar a função `getAnimalsOlderThan` que será responsável verificar se todos os animais de uma determinada espécie possuem uma idade mínima específicada, a função deve receber como parâmetro o nome de uma espécie e uma idade mínima e retornar um booleano.
+2. Implementar a função `getAnimalsOlderThan` que será responsável por verificar se todos os animais de uma determinada espécie possuem uma idade mínima específicada, a função deve receber como parâmetro o nome de uma espécie e uma idade mínima e retornar um booleano.
 
 3. Implementar a função `getEmployeeByName` que será responsável por buscar uma pessoa colaboradora através do primeiro ou último nome dela recebido como parâmetro.
   - Caso não receba parâmetro, deve retornar um array vazio.
@@ -29,7 +29,7 @@ O projeto consiste em implementar funções para atender os requisitos propostos
 4. Implementar a função `getRelatedEmployees` que será reponsável por retornar um array contendo os nomes das pessoas colaboradoras em que a pessoa gerente é reponsável.
   - Considerando a boa prática, a  função deve ser dividida em partes menores.
   - Implementar a função auxiliar `isManager` que será responsável por verificar se uma pessoa colaboradora é ou não gerente, esta função deverá retornar um booleano `true` ou `false`.
-  - Implementar a função `getRelatedEmployees` que, utilizando a função `isManager`, verifica se o id recebido como parâmetro é de uma pessoa gerente, se `isManager` retornar true, a função retorna um array contendo os nomes das pessoas colaboradoras em que a pessoa gerente é responsável, se não, a função retorna um erro gerado com a função construtora **Error** da biblioteca padrão do JavaScript com a menensagem **"O id inserido não é de uma pessoa colaboradora gerente!"**.
+  - Implementar a função `getRelatedEmployees` que, utilizando a função `isManager`, verifica se o id recebido como parâmetro é de uma pessoa gerente, se `isManager` retornar true, a função retorna um array contendo os nomes das pessoas colaboradoras em que a pessoa gerente é responsável, se não, a função retorna um erro gerado com a função construtora **Error** da biblioteca padrão do JavaScript com a mensagem **"O id inserido não é de uma pessoa colaboradora gerente!"**.
 
 ```javascript
 throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
@@ -84,12 +84,12 @@ Deve retornar:
 
 6.4. Caso não receba um parâmetro ou receba um array vazio a função deve retornar `0`.
 
-7. Implementar a função `getAnimalMap` que será responsável por fazer um mapeamento geográfico das espécies e seus animais, podendo ainda filtŕa-los por ordem alfabética e sexo quando receber por parâmetro um objeto com suas especificações.
+7. Implementar a função `getAnimalMap` que será responsável por fazer um mapeamento geográfico das espécies e seus animais, podendo ainda filtrá-los por ordem alfabética e sexo quando receber por parâmetro um objeto com suas especificações.
   - Caso não receba parâmetros, deve retornar os animais categorizados por localização.
   - Caso a opção `includeNames` não seja especificada, deve retornar os animais categorizados por lozalização.
   - Caso a opção `includeNames: true` seja especificada, deve retornar os nomes dos animais.
   - Caso a opção `sorted: true` seja espeficicada, deve retornar os nomes dos animais ordenados alfabeticamente.
-  - Caso a opção `sex: 'female'` ou `sex: 'male'` seja especificda, deve retornar somente os nomes dos animais macho/fêmea.
+  - Caso a opção `sex: 'female'` ou `sex: 'male'` seja especificada, deve retornar somente os nomes dos animais macho/fêmea.
   - Caso a opção `sex: 'female'` ou `sex: 'male'` seja especificada e a opção `sorted: true` também seja especificada, deve retornar somente os nomes dos animais macho/fêmea com os nomes ordenados alfabeticamente. 
 
 8. Implementar a função `getSchedule` que será responsável por disponibilizar as informações dos animais em uma consulta para o usuário, o usuário deve poder acessar o cronograma da semana, de um dia ou de um animal específico.
@@ -165,7 +165,7 @@ getEmployeesCoverage();
 ];
 ```
 
-10.4. Caso nenhuma pessoa seja encontrada com o nome, sobrenome ou id, deve ser lançado um errto gerado com a função construtora **Error** da biblioteca padrão do JavaScript com a mensagem **"Informações inválidas"** .
+10.4. Caso nenhuma pessoa seja encontrada com o nome, sobrenome ou id, deve ser lançado um erro gerado com a função construtora **Error** da biblioteca padrão do JavaScript com a mensagem **"Informações inválidas"** .
 
 ```javascript
 throw new Error('Informações inválidas');
